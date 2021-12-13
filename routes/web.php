@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return "Fullstack Challenge 2021 🏅 - Space Flight News";
 });
-Route::get('/articles/', 'ArticleController@index');
-Route::get('/articles/{id}', 'ArticleController@show');
+Route::get('/articles/', [ArticleController::class, 'index']);
+Route::get('/articles/{id}', [ArticleController::class, 'show']);
