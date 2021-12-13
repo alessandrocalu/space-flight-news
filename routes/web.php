@@ -14,13 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "Fullstack Challenge 2021 🏅 - Space Flight News";
 });
-
-Route::get('/articles/', function () {
-    return view('welcome');
-});
-
-Route::get('/articles/{id}', function () {
-    return view('welcome');
-});
+Route::get('/articles/', 'ArticleController@index');
+Route::get('/articles/{id}', 'ArticleController@show');
