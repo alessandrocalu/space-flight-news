@@ -30,7 +30,12 @@ class SyncArticleRoutine
     {
         $listArticles = $this->getAPIArticles();
         foreach ($listArticles as $article) {
-            dump($article); die();
+            $this->service->updadeArticle($article["id"], [
+                "id" => $article["id"],
+                "title" => $article["title"],
+                "image" => $article["imageUrl"],
+                "publication_date" => substr($article["updatedAt"],0,10)." ".substr($article["updatedAt"],11,8)
+            ]);
         }
     }
 }
