@@ -13,9 +13,9 @@ API para acesso a dados de Space Flight News
 
 [GET]/:  Retorna um Status: 200 e uma Mensagem "Fullstack Challenge 2021 🏅 - Space Flight News"
 
-[GET]/articles/:  Listar todos os artigos da base de dados, utilizar o sistema de paginação na resposta do endpoint para não sobrecarregar a REQUEST
+[GET]/articles/:  Lista todos os artigos da base de dados.
 
-[GET]/articles/{id}: Obter a informação somente de um artigo
+[GET]/articles/{id}: Obtem a informação somente de um artigo
 
 
 ### Rotinas de armazenamento de novos artigos
