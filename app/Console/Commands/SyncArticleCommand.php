@@ -22,7 +22,7 @@ class SyncArticleCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Ferramenta para a atualização da artigos';
+    protected $description = 'Ferramenta para a atualização de artigos';
 
     /**
      * Create a new command instance.
