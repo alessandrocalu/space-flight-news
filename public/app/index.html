@@ -15,6 +15,7 @@
   </head>
   <body>
     <div id="root"></div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/babel">
 const {
     colors,
@@ -27,6 +28,12 @@ const {
     SvgIcon,
     Link,
     Button,
+    PropTypes,
+    List,
+    ListItem,
+    ListItemText,
+    ListDividers,
+    Divider
 } = MaterialUI;
 
 // Create a theme instance.
@@ -44,8 +51,36 @@ const theme = createTheme({
     },
 });
 
+
+let todos = [];
+const style = {
+    width: '100%',
+    maxWidth: 360,
+    bgcolor: 'background.paper',
+};
+
 function App() {
-  return <Button variant="contained"> Olá Mundo</Button>;
+    const [post, setPost] = React.useState(null);
+    React.useEffect(() => {
+        axios
+            .get("/articles")
+            .then(response => {
+                let todos = [];
+                response.data.forEach(item => todos.push(
+                    <ListItem button>{item.title}</ListItem>
+                ));
+                setPost(todos);  
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    }, []);
+    
+    return (
+        <List sx={style} component="nav" aria-label="mailbox folders">
+        {post}
+        </List>
+    );
 }
 
 ReactDOM.render(<App />, document.querySelector('#root'));
